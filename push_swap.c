@@ -6,72 +6,107 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/05/16 00:21:47 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:32:51 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_spaces(char **av)
- {
-    int  i;
-    int  j;
-    int  spaces;
-    
-    i = 0;
-    while(av[i])
-    {
-        j = 0;
-        spaces = 0;
-        while(av[i][j])
-        {
-            if(av[i][j] == ' ')
-                spaces++;
-            j++;
-        }
-        if((int)strlen(av[i]) == spaces)
-        {
-            printf("saadouda");
-            return(1);
-        }
-        i++;
-    }
-    return (0);
- }
-
- int check_alpha(char **av)
- {
-    int  i;
-    int  j;
-    
-    i = 0;
-    while(av[i])
-    {
-        j = 0;
-        while(av[i][j])
-        {
-            if((av[i][j] >= 65 && av[i][j] >= 90) || (av[i][j] >= 97 && av[i][j] >= 122))
-                return(1);
-            j++;
-        }
-        i++;
-    }
-    return (0);
- }
-
-void    parsing(int ac, char **av)
+int	is_number(int c)
 {
-    (void)ac;
-    if (check_spaces(av) == 1 || check_alpha(av) == 1)
-        printf("hello\n");
-    else
-        return ;
+	return ((c >= '0' && c <= '9') || c == ' ');
+}
+
+int	is_alpha(char **av)
+{
+	int i;
+
+	i = 1;
+	while (av[i])
+	{
+		int j = 0;
+		while (av[i][j])
+		{
+			if (!is_number(av[i][j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int is_empty(char **av)
+{
+	int i = 1;
+	while(av[i])
+	{
+		int j = 0;
+		while(av[i][j] == ' ')
+			j++;
+		if(!av[i][j])
+			return (1);
+		i++;
+	}
+	return(0);
+}
+
+int	count(char **av)
+{
+	int counter = 0;
+	int i = 1;
+	
+	while(av[i])
+	{
+		counter += countword(av[i], ' ');
+		i++;
+	}
+	return (counter);
+}
+void	fill_arr(char **av, int *arr, int *j)
+{
+	int i = 0;
+	while (av[i])
+	{
+		arr[*j] = ft_atoi(av[i]);
+		i++;
+		(*j)++;
+	}
+}
+int is_double(char **av)
+{
+	char	**splited;
+	int		*arr;
+
+	int i = 1;
+	int j = 0;
+	arr = malloc(sizeof(int) * count(av));
+	if (!arr)
+		return(1);
+	while(av[i])
+	{
+		splited = ft_split(av[i], ' ');
+		if (!splited)
+			return (1);
+		fill_arr(splited, arr, &j);
+		// int j = 0;
+		// while (splited[j])
+		// {
+		// 	printf("%s\n", splited[j]);
+		// 	j++;
+		// }
+		i++;
+	}
+		sort_int_tab(arr, j);
+	
+	return (0);
 }
 
 int main(int ac, char **av)
 {
-    (void) *av;
     if (ac == 1)
         exit(1);
-    parsing(ac, av);
+	if (is_empty(av) || is_alpha(av) || is_double(av))
+		return (printf("ko"), 1);
+	return (puts("ok"), 0);
 }

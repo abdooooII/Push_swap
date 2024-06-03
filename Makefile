@@ -6,7 +6,7 @@
 #    By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 04:25:43 by abouafso          #+#    #+#              #
-#    Updated: 2024/05/15 11:14:56 by abouafso         ###   ########.fr        #
+#    Updated: 2024/06/03 22:05:22 by abouafso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = push_swap
 
 CC = CC
 
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = push_swap.c \
+SRC = push_swap.c utils.c split.c
 	
 
 OBJ = $(SRC:.c=.o)
