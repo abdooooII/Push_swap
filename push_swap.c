@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/03 22:32:51 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:37:13 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,13 @@ int is_double(char **av)
 		// }
 		i++;
 	}
-		sort_int_tab(arr, j);
-	
+	sort_int_tab(arr, j);
+	j = 0;
+	while(j < count(av))
+	{
+		printf("%d -- ", arr[j]);
+		j++;
+	}
 	return (0);
 }
 
