@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/03 22:37:13 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:52:17 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,19 @@ void	fill_arr(char **av, int *arr, int *j)
 		(*j)++;
 	}
 }
+
+int check_dup(int *arr)
+{
+	int i = 0;
+	int size = sizeof(arr) / 4;
+	while(i < size)
+	{
+		if(arr[i] == arr[i + 1])
+			return(1);
+		i++;
+	}
+	return (0);
+}
 int is_double(char **av)
 {
 	char	**splited;
@@ -98,6 +111,8 @@ int is_double(char **av)
 		i++;
 	}
 	sort_int_tab(arr, j);
+	if (check_dup(arr))
+		return (1);
 	j = 0;
 	while(j < count(av))
 	{
