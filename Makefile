@@ -6,7 +6,7 @@
 #    By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 04:25:43 by abouafso          #+#    #+#              #
-#    Updated: 2024/06/03 22:05:22 by abouafso         ###   ########.fr        #
+#    Updated: 2024/06/05 15:57:37 by abouafso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,24 +16,24 @@ CC = CC
 
 # CFLAGS = -Wall -Wextra -Werror
 
-RM = rm -f
+RM = rm -rf
 
-SRC = push_swap.c utils.c split.c
+SRC = push_swap.c utils.c split.c init_stack.c lists_libft.c
 	
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(addprefix obj/, $(SRC:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
 
-%.o: %.c so_long.h
+obj/%.o: %.c push_swap.h
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
 clean:
-	$(RM) $(OBJ)
+	$(RM) obj
 
 fclean: clean
 	$(RM) $(NAME)

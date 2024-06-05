@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/04 20:22:39 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/05 15:50:07 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,18 @@ int check_dup(int *arr, int size)
 	}
 	return (0);
 }
+
+void	free_arr(char **arr)
+{
+	int i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
 int is_double(char **av)
 {
 	char	**splited;
@@ -113,12 +125,13 @@ int is_double(char **av)
 		if (!splited)
 			return (1);
 		fill_arr(splited, arr, &j);
+		free_arr(splited);
 		i++;
 	}
 	sort_int_tab(arr, j);
 	if (check_dup(arr, j - 1))
-		return (1);
-	return (0);
+		return (free(arr), 1);
+	return (free(arr), 0);
 }
 
 int	check_overflow(char *splited)
@@ -180,6 +193,7 @@ int	check_limits(char **av)
 		splited = ft_split(av[i], ' ');
 		if (process(splited) || check_min_max(splited))
 			return (1);
+		free_arr(splited);
 		i++;
 	}
 	return 0;
@@ -214,18 +228,53 @@ int	is_sorted(char **av)
 		if (!splited)
 			return (1);
 		fill_arr(splited, arr, &j);
+		free_arr(splited);
 		i++;
 	}
 	if (sorted(arr, j - 1))
-		return (1);
-	return (0);
+		return (free(arr), 1);
+	return (free(arr), 0);
+}
+
+void	print_stack(t_stack *stack_a)
+{
+	while (stack_a)
+	{
+		printf("%d ", stack_a->data);
+		stack_a = stack_a->next;
+	}
+	printf("\n");
+}
+
+void	hello(){system("leaks push_swap");}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;	
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }
 
 int main(int ac, char **av)
 {
+	// atexit(hello);
+	t_stack *stack_a;
+	t_stack *stack_b = NULL;
+
     if (ac == 1 || is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
-		return (printf("ko\n"), 1);
+		return (printf("Error\n"), 1);
 	if (is_sorted(av))
 		return (0);
+	stack_a = init_stack(ac, av);
+	print_stack(stack_a);
+	free_stack(&stack_a);
 	return (puts("ok"), 0);
 }
