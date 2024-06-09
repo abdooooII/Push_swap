@@ -6,7 +6,7 @@
 #    By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 04:25:43 by abouafso          #+#    #+#              #
-#    Updated: 2024/06/05 15:57:37 by abouafso         ###   ########.fr        #
+#    Updated: 2024/06/08 16:50:57 by abouafso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CC = CC
 
 RM = rm -rf
 
-SRC = push_swap.c utils.c split.c init_stack.c lists_libft.c
+SRC = push_swap.c utils.c split.c init_stack.c lists_libft.c rotate.c \
+	push.c swap.c reverse.c sort.c
 	
 
 OBJ = $(addprefix obj/, $(SRC:.c=.o))

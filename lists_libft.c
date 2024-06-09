@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:17:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/05 15:20:07 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/08 19:41:24 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,34 @@ t_stack	*ft_lstlast(t_stack *lst)
 		lst = lst->next;
 	}
 	return (lst);
+}
+
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
+{
+	if (!lst || !*lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	count;
+
+	count = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return (count);
+}
+
+t_stack	*before_last(t_stack *stack)
+{
+	while (stack && stack->next && stack->next->next)
+		stack = stack->next;
+	return (stack);
 }

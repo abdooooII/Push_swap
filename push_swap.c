@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/05 15:50:07 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/09 00:53:09 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,8 +236,12 @@ int	is_sorted(char **av)
 	return (free(arr), 0);
 }
 
-void	print_stack(t_stack *stack_a)
+void	print_stack(t_stack *stack_a, int state)
 {
+	if (state == 1)
+		printf("stack a: ");
+	if (state == 0)
+		printf("stack b: ");
 	while (stack_a)
 	{
 		printf("%d ", stack_a->data);
@@ -267,14 +271,17 @@ int main(int ac, char **av)
 {
 	// atexit(hello);
 	t_stack *stack_a;
-	t_stack *stack_b = NULL;
+	t_stack *stack_b;
 
+	stack_b = NULL;
     if (ac == 1 || is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
 		return (printf("Error\n"), 1);
 	if (is_sorted(av))
 		return (0);
 	stack_a = init_stack(ac, av);
-	print_stack(stack_a);
+	print_stack(stack_a, 1);
+	sort_three(&stack_a);
+	print_stack(stack_a, 1);
 	free_stack(&stack_a);
-	return (puts("ok"), 0);
+	return (0);
 }
