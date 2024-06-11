@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/09 00:53:09 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:42:40 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,18 +269,27 @@ void	free_stack(t_stack **stack)
 
 int main(int ac, char **av)
 {
-	// atexit(hello);
+	atexit(hello);
 	t_stack *stack_a;
 	t_stack *stack_b;
 
 	stack_b = NULL;
-    if (ac == 1 || is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
+	if (ac == 1)
+		return (0);
+    if (is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
+	{
 		return (printf("Error\n"), 1);
+	}
 	if (is_sorted(av))
 		return (0);
 	stack_a = init_stack(ac, av);
 	print_stack(stack_a, 1);
-	sort_three(&stack_a);
+	if (ft_lstsize(stack_a) == 3 || ft_lstsize(stack_a) == 2)
+		sort_three(&stack_a);
+	else if (ft_lstsize(stack_a) == 4)
+		sort_four(&stack_a, &stack_b);
+	else if (ft_lstsize(stack_a) == 5)
+		sort_five(&stack_a, &stack_b);
 	print_stack(stack_a, 1);
 	free_stack(&stack_a);
 	return (0);

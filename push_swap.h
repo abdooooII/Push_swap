@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/08 19:35:28 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:44:42 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,9 @@ int			rra(t_stack **stack_a);
 int			ft_lstsize(t_stack *lst);
 void		sort_three(t_stack **stack);
 t_stack		*before_last(t_stack *stack);
+int find_min_position(t_stack *stack);
+void move_min_to_top(t_stack **stack);
+void sort_four(t_stack **stack_a, t_stack **stack_b);
+void sort_five(t_stack **stack_a, t_stack **stack_b);
 
 #endif
