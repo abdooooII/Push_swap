@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/14 04:38:54 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/14 23:21:50 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 
 typedef struct s_stack
 {
+	int index;
+	int position;
 	int	data;
 	struct	s_stack *next;
 } t_stack;
 
+int	ft_lstsize(t_stack *lst);
 long		ft_atoi(const char *str);
 char		**ft_split(const char *s, char c);
 char		**ft_help(const char *end, char c, int len, char **final);
@@ -61,5 +64,10 @@ int 		find_min_position(t_stack *stack);
 void 		move_min_to_top(t_stack **stack);
 void 		sort_four(t_stack **stack_a, t_stack **stack_b);
 void 		sort_five(t_stack **stack_a, t_stack **stack_b);
+void index_stack(t_stack *stack) ;
+void from_b_to_a (t_stack **stack_a, t_stack **stack_b);
+int max_index(t_stack *head);
+void	stack_position(t_stack *a);
+void	from_a_to_b(t_stack **stack_a, t_stack **stack_b);
 
 #endif

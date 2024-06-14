@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/11 18:46:48 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/14 23:32:13 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,12 +239,12 @@ int	is_sorted(char **av)
 void	print_stack(t_stack *stack_a, int state)
 {
 	if (state == 1)
-		printf("stack a: ");
+		printf("stack a: \n");
 	if (state == 0)
 		printf("stack b: ");
 	while (stack_a)
 	{
-		printf("%d ", stack_a->data);
+		printf("%d  === > %d\n", stack_a->data, stack_a->index);
 		stack_a = stack_a->next;
 	}
 	printf("\n");
@@ -267,6 +267,30 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
+void sort_other(t_stack **stack_a, t_stack **stack_b)
+{
+	index_stack(*stack_a);
+	// puts("a to b");
+	from_a_to_b(stack_a, stack_b);
+	// printf("%d\n", ft_lstsize(*stack_b));
+	// puts("b to a ");
+	from_b_to_a(stack_a, stack_b);
+}
+
+void sorting_helper(t_stack **stack_a, t_stack **stack_b)
+{
+	if (ft_lstsize(*stack_a) == 3 || ft_lstsize(*stack_a) == 2)
+		sort_three(stack_a);
+	else if (ft_lstsize(*stack_a) == 4)
+		sort_four(stack_a, stack_b);
+	else if (ft_lstsize(*stack_a) == 5)
+		sort_five(stack_a, stack_b);
+	else
+		sort_other(stack_a, stack_b);
+}
+
+
+
 int main(int ac, char **av)
 {
 	// atexit(hello);
@@ -283,13 +307,10 @@ int main(int ac, char **av)
 	if (is_sorted(av))
 		return (0);
 	stack_a = init_stack(ac, av);
-	print_stack(stack_a, 1);
-	if (ft_lstsize(stack_a) == 3 || ft_lstsize(stack_a) == 2)
-		sort_three(&stack_a);
-	else if (ft_lstsize(stack_a) == 4)
-		sort_four(&stack_a, &stack_b);
-	else if (ft_lstsize(stack_a) == 5)
-		sort_five(&stack_a, &stack_b);
+	// print_stack(stack_a, 1);
+
+	sorting_helper(&stack_a, &stack_b);
+	puts("ook");
 	print_stack(stack_a, 1);
 	free_stack(&stack_a);
 	return (0);
