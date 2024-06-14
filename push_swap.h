@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/11 17:44:42 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/14 04:38:54 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int 		rr(t_stack **stack_a, t_stack **stack_b);
 int			pa(t_stack **src, t_stack **dest);
 int			pb(t_stack **src, t_stack **dest);
 int			push(t_stack **src,  t_stack **dest);
+void 		ft_swap(int *a, int *b);
 int			swap(t_stack **stack);
 int			sa(t_stack **stack_a);
 int 		sb(t_stack **stack_b);
@@ -56,9 +57,9 @@ int			rra(t_stack **stack_a);
 int			ft_lstsize(t_stack *lst);
 void		sort_three(t_stack **stack);
 t_stack		*before_last(t_stack *stack);
-int find_min_position(t_stack *stack);
-void move_min_to_top(t_stack **stack);
-void sort_four(t_stack **stack_a, t_stack **stack_b);
-void sort_five(t_stack **stack_a, t_stack **stack_b);
+int 		find_min_position(t_stack *stack);
+void 		move_min_to_top(t_stack **stack);
+void 		sort_four(t_stack **stack_a, t_stack **stack_b);
+void 		sort_five(t_stack **stack_a, t_stack **stack_b);
 
 #endif

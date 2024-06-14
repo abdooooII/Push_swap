@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/11 17:42:40 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:46:48 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,7 +269,7 @@ void	free_stack(t_stack **stack)
 
 int main(int ac, char **av)
 {
-	atexit(hello);
+	// atexit(hello);
 	t_stack *stack_a;
 	t_stack *stack_b;
 
