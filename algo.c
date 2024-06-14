@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:29:49 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/15 00:26:17 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/15 00:55:55 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void index_stack(t_stack *stack) {
 
 void	from_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	int pivot_range = 15;
+	int pivot_range = 16;
 
 	if (ft_lstsize(*stack_a) >= 100)
-		pivot_range = 42;
+		pivot_range = 33;
 	int i = 0;
 
 	while(ft_lstsize(*stack_a))
@@ -85,7 +85,7 @@ int max_index(t_stack *head)
 	t_stack *tmp = head;
 	t_stack *max = head;
 
-	while (tmp->next)
+	while (tmp)
 	{
 		if (tmp->index > max->index)
 			max = tmp;
@@ -102,15 +102,15 @@ void from_b_to_a (t_stack **stack_a, t_stack **stack_b)
 		stack_position(*stack_b);
 		int size = ft_lstsize(*stack_b);
 		int m_index = max_index(*stack_b);
-		printf("%d\n", m_index);
 		while ((*stack_b)->position != m_index)
 		{
 			if (m_index < (size / 2))
 			{
-				while (m_index)
+				int nb1 = size - m_index;
+				while (nb1)
 				{
 					rb(stack_b);
-					m_index--;
+					nb1--;
 				}	
 			}
 			else if (m_index >= (size / 2))
@@ -123,6 +123,7 @@ void from_b_to_a (t_stack **stack_a, t_stack **stack_b)
 				}
 			}
 		}
-		pa(stack_a, stack_b);
+		if ((*stack_b)->position == m_index)
+			pa(stack_a, stack_b);
 	}
 }
