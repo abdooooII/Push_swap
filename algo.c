@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:29:49 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/15 00:55:55 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/15 01:26:33 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,33 +97,26 @@ int max_index(t_stack *head)
 
 void from_b_to_a (t_stack **stack_a, t_stack **stack_b)
 {
-	while (*stack_b)
+	while (ft_lstsize(*stack_b))
 	{
 		stack_position(*stack_b);
 		int size = ft_lstsize(*stack_b);
 		int m_index = max_index(*stack_b);
-		while ((*stack_b)->position != m_index)
-		{
-			if (m_index < (size / 2))
+			if (m_index == 0)
+				pa(stack_a, stack_b);
+			else if (m_index < (size / 2))
 			{
 				int nb1 = size - m_index;
-				while (nb1)
-				{
+				while (nb1--)
 					rb(stack_b);
-					nb1--;
-				}	
+				pa(stack_a, stack_b);
 			}
 			else if (m_index >= (size / 2))
 			{
 				int nb = size - m_index;
-				while (nb)
-				{
+				while (nb--)
 					rrb(stack_b);
-					nb--;
-				}
+				pa(stack_a, stack_b);
 			}
 		}
-		if ((*stack_b)->position == m_index)
-			pa(stack_a, stack_b);
-	}
 }
