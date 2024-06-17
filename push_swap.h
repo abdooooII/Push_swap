@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/14 23:21:50 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/15 11:47:46 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,4 @@ void from_b_to_a (t_stack **stack_a, t_stack **stack_b);
 int max_index(t_stack *head);
 void	stack_position(t_stack *a);
 void	from_a_to_b(t_stack **stack_a, t_stack **stack_b);
-
 #endif
