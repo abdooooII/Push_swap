@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/19 18:25:16 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:01:51 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,8 @@ char	*read_file(int fd, char *result);
 char	*copy_line(char *buffer);
 char	*remove_first_line(char *buffer);
 char	*get_next_line(int fd);
+
+// checker pushswap
+
+void	checker(t_stack **stack_a, t_stack **stack_b, char *instruction);
 #endif

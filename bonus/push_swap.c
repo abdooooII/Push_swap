@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/19 18:02:43 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:14:52 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,15 +289,41 @@ void sorting_helper(t_stack **stack_a, t_stack **stack_b)
 		sort_other(stack_a, stack_b);
 }
 
-
+void	checker(t_stack **stack_a, t_stack **stack_b, char *instruction)
+{
+	if(!ft_strcmp(instruction, "pa\n"))
+		pa(stack_a, stack_b);
+	else if(!ft_strcmp(instruction, "pb\n"))
+		pb(stack_a, stack_b);
+	else if(!ft_strcmp(instruction, "sa\n"))
+		sa(stack_a);
+	else if(!ft_strcmp(instruction, "sb\n"))
+		sb(stack_b);
+	else if(!ft_strcmp(instruction, "ss\n"))
+		ss(stack_a, stack_b);
+	else if(!ft_strcmp(instruction, "ra\n"))
+		ra(stack_a);
+	else if(!ft_strcmp(instruction, "rb\n"))
+		rb(stack_b);
+	else if(!ft_strcmp(instruction, "rr\n"))
+		rr(stack_a, stack_b);
+	else if(!ft_strcmp(instruction, "rra\n"))
+		rra(stack_a);
+	else if(!ft_strcmp(instruction, "rrb\n"))
+		rrb(stack_b);
+	else if(!ft_strcmp(instruction, "rrr\n"))
+		rrr(stack_a, stack_b);
+}
 
 int main(int ac, char **av)
 {
 	// atexit(hello);
 	t_stack *stack_a;
 	t_stack *stack_b;
+	char	*instructions;
 
 	stack_b = NULL;
+	instructions = get_next_line(0);
 	if (ac == 1)
 		return (0);
     if (is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
@@ -307,6 +333,20 @@ int main(int ac, char **av)
 	if (is_sorted(av))
 		return (0);
 	stack_a = init_stack(ac, av);
+	/////	  /////
+
+	while(instructions)
+	{
+		// printf("%s", instructions);
+		checker(&stack_a, stack_b, instructions);
+		print_stack(stack_a, 1);
+		free(instructions);
+		instructions = get_next_line(0);
+	}
+
+
+	/////     /////
+	
 	// print_stack(stack_a, 1);
 
 	sorting_helper(&stack_a, &stack_b);
