@@ -13,7 +13,7 @@
 NAME = push_swap
 BONUS_NAME = push_swap_bonus
 
-CC = CC
+CC = cc
 
 # CFLAGS = -Wall -Wextra -Werror
 # CFLAGS = -fsanitize=address -g

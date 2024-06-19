@@ -250,7 +250,6 @@ void	print_stack(t_stack *stack_a, int state)
 	printf("\n");
 }
 
-void	hello(){system("leaks push_swap");}
 
 void	free_stack(t_stack **stack)
 {
@@ -317,7 +316,6 @@ void	checker(t_stack **stack_a, t_stack **stack_b, char *instruction)
 
 int main(int ac, char **av)
 {
-	// atexit(hello);
 	t_stack *stack_a;
 	t_stack *stack_b;
 	char	*instructions;
@@ -338,7 +336,7 @@ int main(int ac, char **av)
 	while(instructions)
 	{
 		// printf("%s", instructions);
-		checker(&stack_a, stack_b, instructions);
+		checker(&stack_a, &stack_b, instructions);
 		print_stack(stack_a, 1);
 		free(instructions);
 		instructions = get_next_line(0);
