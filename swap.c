@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:49:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/14 04:43:38 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:10:17 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int sa(t_stack **stack_a)
 {
 	if(swap(stack_a))
 		return(1);
-	printf("sa\n");
+	ft_putstr("sa\n");
 	return(0);
 }
 
@@ -49,7 +49,7 @@ int sb(t_stack **stack_b)
 {
 	if(swap(stack_b))
 		return(1);
-	printf("sb\n");
+	ft_putstr("sb\n");
 	return(0);
 }
 
@@ -57,6 +57,6 @@ int ss(t_stack **stack_a, t_stack **stack_b)
 {
 	if(swap(stack_a) || swap(stack_b))
 		return(1);
-	printf("ss\n");
+	ft_putstr("ss\n");
 	return(0);
 }

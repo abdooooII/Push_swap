@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/19 18:00:40 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:51:26 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,21 +236,6 @@ int	is_sorted(char **av)
 	return (free(arr), 0);
 }
 
-void	print_stack(t_stack *stack_a, int state)
-{
-	if (state == 1)
-		printf("stack a: \n");
-	if (state == 0)
-		printf("stack b: ");
-	while (stack_a)
-	{
-		printf("%d  === > %d\n", stack_a->data, stack_a->index);
-		stack_a = stack_a->next;
-	}
-	printf("\n");
-}
-
-void	hello(){system("leaks push_swap");}
 
 void	free_stack(t_stack **stack)
 {
@@ -270,10 +255,7 @@ void	free_stack(t_stack **stack)
 void sort_other(t_stack **stack_a, t_stack **stack_b)
 {
 	index_stack(*stack_a);
-	// puts("a to b");
 	from_a_to_b(stack_a, stack_b);
-	// printf("%d\n", ft_lstsize(*stack_b));
-	// puts("b to a ");
 	from_b_to_a(stack_a, stack_b);
 }
 
@@ -289,8 +271,6 @@ void sorting_helper(t_stack **stack_a, t_stack **stack_b)
 		sort_other(stack_a, stack_b);
 }
 
-
-
 int main(int ac, char **av)
 {
 	// atexit(hello);
@@ -302,15 +282,12 @@ int main(int ac, char **av)
 		return (0);
     if (is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
 	{
-		return (printf("Error\n"), 1);
+		return (ft_error("Error\n"), 1);
 	}
 	if (is_sorted(av))
 		return (0);
 	stack_a = init_stack(ac, av);
-	// print_stack(stack_a, 1);
-
 	sorting_helper(&stack_a, &stack_b);
-	print_stack(stack_a, 1);
 	free_stack(&stack_a);
 	return (0);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:43:41 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/11 17:12:42 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:38:11 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 void	sort_three(t_stack **stack)
 {
 	t_stack	*curr;
@@ -31,8 +31,6 @@ void	sort_three(t_stack **stack)
 	if ((*stack)->data > (*stack)->next->data)
 		sa(stack);
 }
-
-#include "push_swap.h"
 
 // Helper function to find the minimum element's position in the stack
 int find_min_position(t_stack *stack) 

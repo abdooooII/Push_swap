@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/20 12:36:20 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 20:02:52 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	is_number(int c)
 {
@@ -236,21 +236,6 @@ int	is_sorted(char **av)
 	return (free(arr), 0);
 }
 
-void	print_stack(t_stack *stack_a, int state)
-{
-	if (state == 1)
-		printf("stack a: \n");
-	if (state == 0)
-		printf("stack b: ");
-	while (stack_a)
-	{
-		printf("%d  === > %d\n", stack_a->data, stack_a->index);
-		stack_a = stack_a->next;
-	}
-	printf("\n");
-}
-
-
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -269,10 +254,7 @@ void	free_stack(t_stack **stack)
 void sort_other(t_stack **stack_a, t_stack **stack_b)
 {
 	index_stack(*stack_a);
-	// puts("a to b");
 	from_a_to_b(stack_a, stack_b);
-	// printf("%d\n", ft_lstsize(*stack_b));
-	// puts("b to a ");
 	from_b_to_a(stack_a, stack_b);
 }
 
@@ -321,13 +303,10 @@ int is_sortedd(t_stack *stack_a)
     // Traverse the stack
     while (stack_a && stack_a->next)
     {
-        // If the current value is greater than the next value, return 0 (not sorted)
         if (stack_a->data > stack_a->next->data)
             return 0;
-        // Move to the next node
         stack_a = stack_a->next;
     }
-    // If no discrepancies found, return 1 (sorted)
     return 1;
 }
 
@@ -338,38 +317,23 @@ int main(int ac, char **av)
 	char	*instructions;
 
 	stack_b = NULL;
-	instructions = get_next_line(0);
 	if (ac == 1)
 		return (0);
     if (is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
-	{
-		return (printf("Error\n"), 1);
-	}
+		return (ft_error("Error\n"), 1);
+	instructions = get_next_line(0);
 	if (is_sorted(av))
-		return (0);
+		return(ft_putstr("OK\n"), 0);
 	stack_a = init_stack(ac, av);
-	/////	  /////
-
 	while(instructions)
 	{
-		// printf("%s", instructions);
 		checker(&stack_a, &stack_b, instructions);
-		print_stack(stack_a, 1);
 		free(instructions);
 		instructions = get_next_line(0);
 	}
 	if(is_sortedd(stack_a))
-		ft_putstr("OK\n");
+		return(ft_putstr("OK\n"), 0);
 	else
-		ft_putstr("KO\n");
-
-
-	/////     /////
-	
-	// print_stack(stack_a, 1);
-
-	sorting_helper(&stack_a, &stack_b);
-	// print_stack(stack_a, 1);
+		return(ft_putstr("KO\n"), 0);
 	free_stack(&stack_a);
-	return (0);
 }

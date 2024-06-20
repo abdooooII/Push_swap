@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:55:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/20 12:31:40 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:43:20 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void ft_putstr(char *str)
 {
@@ -77,7 +77,7 @@ long	ft_atoi(const char *str)
 
 void sort_int_tab(int *tab, unsigned int size)
 {
-	int i = 0;
+	unsigned int i = 0;
 	int	tmp;
 
 	while(i < size - 1)

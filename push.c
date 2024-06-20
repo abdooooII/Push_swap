@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 14:55:59 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/08 15:44:46 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:09:27 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	pa(t_stack **src, t_stack **dest)
 {
 	if(push(dest, src))
 		return(1);
-	printf("pa\n");
+	ft_putstr("pa\n");
 	return(0);
 }
 
@@ -40,6 +40,6 @@ int	pb(t_stack **src, t_stack **dest)
 {
 	if(push(src, dest))
 		return(1);
-	printf("pb\n");
+	ft_putstr("pb\n");
 	return(0);
 }

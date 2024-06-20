@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:55:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/20 12:31:21 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:43:00 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ long	ft_atoi(const char *str)
 
 void sort_int_tab(int *tab, unsigned int size)
 {
-	int i = 0;
+	unsigned int i = 0;
 	int	tmp;
 
 	while(i < size - 1)
