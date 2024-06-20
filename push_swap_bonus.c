@@ -323,7 +323,7 @@ int main(int ac, char **av)
 		return (ft_error("Error\n"), 1);
 	instructions = get_next_line(0);
 	if (is_sorted(av))
-		return(ft_putstr("OK\n"), 0);
+		return(free(instructions), ft_putstr("OK\n"), 0);
 	stack_a = init_stack(ac, av);
 	while(instructions)
 	{
@@ -331,9 +331,8 @@ int main(int ac, char **av)
 		free(instructions);
 		instructions = get_next_line(0);
 	}
+	free(instructions);
 	if(is_sortedd(stack_a))
-		return(ft_putstr("OK\n"), 0);
-	else
-		return(ft_putstr("KO\n"), 0);
-	free_stack(&stack_a);
+		return(free_stack(&stack_a), free_stack(&stack_b), ft_putstr("OK\n"), 0);
+	return(free_stack(&stack_a), free_stack(&stack_b), ft_putstr("KO\n"), 0);
 }
