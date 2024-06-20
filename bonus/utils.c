@@ -6,11 +6,26 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:55:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/19 18:05:12 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:31:40 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void ft_putstr(char *str)
+{
+	int	i = 0;
+	while(str[i])
+		write(1, &str[i++], 1);
+}
+
+void ft_error(char *str)
+{
+	int	i = 0;
+	while(str[i])
+		write(2, &str[i++], 1);
+	exit(EXIT_FAILURE);
+}
 
 int ft_strcmp(const char *s1, const char *s2)
 {

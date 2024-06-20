@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/15 11:47:46 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:32:33 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>    
 # include <string.h>
 # include <limits.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/19 19:14:52 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:36:20 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -312,6 +312,23 @@ void	checker(t_stack **stack_a, t_stack **stack_b, char *instruction)
 		rrb(stack_b);
 	else if(!ft_strcmp(instruction, "rrr\n"))
 		rrr(stack_a, stack_b);
+	else
+		ft_error("Error\n");
+}
+
+int is_sortedd(t_stack *stack_a)
+{
+    // Traverse the stack
+    while (stack_a && stack_a->next)
+    {
+        // If the current value is greater than the next value, return 0 (not sorted)
+        if (stack_a->data > stack_a->next->data)
+            return 0;
+        // Move to the next node
+        stack_a = stack_a->next;
+    }
+    // If no discrepancies found, return 1 (sorted)
+    return 1;
 }
 
 int main(int ac, char **av)
@@ -341,6 +358,10 @@ int main(int ac, char **av)
 		free(instructions);
 		instructions = get_next_line(0);
 	}
+	if(is_sortedd(stack_a))
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
 
 
 	/////     /////

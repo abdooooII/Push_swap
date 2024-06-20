@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/19 19:01:51 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:32:01 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ int max_index(t_stack *head);
 void	stack_position(t_stack *a);
 void	from_a_to_b(t_stack **stack_a, t_stack **stack_b);
 int ft_strcmp(const char *s1, const char *s2);
+void ft_error(char *str);
+void ft_putstr(char *str);
+
 
 // gnl
 char	*ft_strjoin(char *s1, char *s2);
@@ -90,4 +93,5 @@ char	*get_next_line(int fd);
 // checker pushswap
 
 void	checker(t_stack **stack_a, t_stack **stack_b, char *instruction);
+int 	is_sortedd(t_stack *stack_a);
 #endif
