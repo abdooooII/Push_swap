@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:29:49 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/15 11:49:15 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/21 01:08:20 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void index_stack(t_stack *stack) {
     }
 }
 
-void from_a_to_b(t_stack **stack_a, t_stack **stack_b) {
+void from_a_to_b(t_stack **stack_a, t_stack **stack_b) 
+{
     int pivot_range;
 
     if (ft_lstsize(*stack_a) <= 100)
@@ -47,23 +48,27 @@ void from_a_to_b(t_stack **stack_a, t_stack **stack_b) {
   		pivot_range = 33;
     int i = 0;
 
-    while (ft_lstsize(*stack_a)) {
-        if ((*stack_a)->index <= i) {
+    while (ft_lstsize(*stack_a)) 
+    {
+        if ((*stack_a)->index <= i) 
+        {
             pb(stack_a, stack_b);
             i++;
-        } else if ((*stack_a)->index <= (i + pivot_range)) {
+        } 
+        else if ((*stack_a)->index <= (i + pivot_range)) 
+        {
             pb(stack_a, stack_b);
-            if (ft_lstsize(*stack_b) > 1) {
+            if (ft_lstsize(*stack_b) > 1)
                 rb(stack_b);
-            }
             i++;
-        } else {
+        } 
+        else
             ra(stack_a);
-        }
     }
 }
 
-void stack_position(t_stack *a) {
+void stack_position(t_stack *a) 
+{
     if (!a)
         return;
     t_stack *tmp = a;
@@ -75,7 +80,8 @@ void stack_position(t_stack *a) {
     }
 }
 
-int max_index(t_stack *head) {
+int max_index(t_stack *head) 
+{
     t_stack *tmp = head;
     t_stack *max = head;
 
@@ -87,7 +93,8 @@ int max_index(t_stack *head) {
     return max->position;
 }
 
-void from_b_to_a(t_stack **stack_a, t_stack **stack_b) {
+void from_b_to_a(t_stack **stack_a, t_stack **stack_b)
+{
     while (ft_lstsize(*stack_b)) {
         stack_position(*stack_b);
         int size = ft_lstsize(*stack_b);

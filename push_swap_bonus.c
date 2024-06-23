@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/20 20:02:52 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/23 15:53:45 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -322,8 +322,8 @@ int main(int ac, char **av)
     if (is_empty(av) || is_alpha(av) || is_double(av) || check_limits(av))
 		return (ft_error("Error\n"), 1);
 	instructions = get_next_line(0);
-	if (is_sorted(av))
-		return(free(instructions), ft_putstr("OK\n"), 0);
+	// if (is_sorted(av))
+	// 	return(free(instructions), ft_putstr("OK\n"), 0);
 	stack_a = init_stack(ac, av);
 	while(instructions)
 	{
