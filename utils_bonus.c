@@ -6,50 +6,56 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:55:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/20 13:43:20 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:18:13 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-	int	i = 0;
-	while(str[i])
+	int	i;
+
+	i = 0;
+	while (str[i])
 		write(1, &str[i++], 1);
 }
 
-void ft_error(char *str)
+void	ft_error(char *str)
 {
-	int	i = 0;
-	while(str[i])
+	int	i;
+
+	i = 0;
+	while (str[i])
 		write(2, &str[i++], 1);
 	exit(EXIT_FAILURE);
 }
 
-int ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-    unsigned char *str1;
-    unsigned char *str2;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-    str1 = (unsigned char *)s1;
-    str2 = (unsigned char *)s2;
-
-    while (*str1 && (*str1 == *str2))
-    {
-        str1++;
-        str2++;
-    }
-    return (*str1 - *str2);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (*str1 && (*str1 == *str2))
+	{
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);
 }
 
 int	ft_strlen(char *str)
 {
-	int i = 0;
-	while(str[i])
+	int	i;
+
+	i = 0;
+	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
+
 long	ft_atoi(const char *str)
 {
 	int			i;
@@ -75,14 +81,15 @@ long	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void sort_int_tab(int *tab, unsigned int size)
+void	sort_int_tab(int *tab, unsigned int size)
 {
-	unsigned int i = 0;
-	int	tmp;
+	unsigned int	i;
+	int				tmp;
 
-	while(i < size - 1)
+	i = 0;
+	while (i < size - 1)
 	{
-		if(tab[i] > tab[i + 1])
+		if (tab[i] > tab[i + 1])
 		{
 			tmp = tab[i];
 			tab[i] = tab[i + 1];
