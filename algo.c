@@ -6,37 +6,43 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:29:49 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 17:38:21 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:57:12 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	index_stack(t_stack *stack)
+void	initialize_indices(t_stack *stack)
 {
-	int		index;
-	int		size;
 	t_stack	*tmp;
-	t_stack	*min_node;
-	t_stack	*current;
 
-	index = 0;
-	size = ft_lstsize(stack);
 	tmp = stack;
 	while (tmp)
 	{
 		tmp->index = -1;
 		tmp = tmp->next;
 	}
+}
+
+void	index_stack(t_stack *stack)
+{
+	int		index;
+	int		size;
+	t_stack	*min_node;
+	t_stack	*current;
+
+	index = 0;
+	size = ft_lstsize(stack);
+	initialize_indices(stack);
 	while (index < size)
 	{
 		current = stack;
 		min_node = NULL;
 		while (current)
 		{
-			if (current->index == -1 && (!min_node
-					|| current->data < min_node->data))
+			if (current->index == -1
+				&& (!min_node || current->data < min_node->data))
 				min_node = current;
 			current = current->next;
 		}
