@@ -6,11 +6,18 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:16:32 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 15:43:42 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:05:07 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+t_stack	*before_last(t_stack *stack)
+{
+	while (stack && stack->next && stack->next->next)
+		stack = stack->next;
+	return (stack);
+}
 
 int	reverse_rotate(t_stack	**stack)
 {

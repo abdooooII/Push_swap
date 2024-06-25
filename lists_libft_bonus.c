@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:17:18 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 16:30:15 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:49:52 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,4 @@ int	ft_lstsize(t_stack *lst)
 		count++;
 	}
 	return (count);
-}
-
-t_stack	*before_last(t_stack *stack)
-{
-	while (stack && stack->next && stack->next->next)
-		stack = stack->next;
-	return (stack);
 }

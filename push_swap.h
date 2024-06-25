@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 15:50:27 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:06:31 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+int			check_limits(char **av);
+int			sorted(int *arr, int size);
+void		fill_arr(char **av, int *arr, int *j);
+int			check_dup(int *arr, int size);
+void		free_arr(char **arr);
+int			is_double(char **av);
+int			check_overflow(char *splited);
+int			process(char **splited);
+int			min_max_help(char *splited);
+int			check_min_max(char **splited);
+int			is_number(int c);
+int			is_num(char c);
+int			is_alpha(char **av);
+int			is_empty(char **av);
+int			count(char **av);
 int			ft_lstsize(t_stack *lst);
 long		ft_atoi(const char *str);
 char		**ft_split(const char *s, char c);
@@ -65,6 +80,7 @@ int			find_min_position(t_stack *stack);
 void		move_min_to_top(t_stack **stack);
 void		sort_four(t_stack **stack_a, t_stack **stack_b);
 void		sort_five(t_stack **stack_a, t_stack **stack_b);
+void		initialize_indices(t_stack *stack);
 void		index_stack(t_stack *stack);
 void		from_b_to_a(t_stack **stack_a, t_stack **stack_b);
 int			max_index(t_stack *head);

@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:55:12 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/24 11:18:13 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:21:30 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,6 @@ void	ft_error(char *str)
 	while (str[i])
 		write(2, &str[i++], 1);
 	exit(EXIT_FAILURE);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (*str1 && (*str1 == *str2))
-	{
-		str1++;
-		str2++;
-	}
-	return (*str1 - *str2);
 }
 
 int	ft_strlen(char *str)

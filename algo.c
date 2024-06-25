@@ -6,24 +6,12 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:29:49 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 17:57:12 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 19:58:47 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
-
-void	initialize_indices(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (tmp)
-	{
-		tmp->index = -1;
-		tmp = tmp->next;
-	}
-}
 
 void	index_stack(t_stack *stack)
 {
