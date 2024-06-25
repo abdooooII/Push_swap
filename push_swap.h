@@ -88,6 +88,7 @@ void		stack_position(t_stack *a);
 void		from_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void		ft_error(char *str);
 void		ft_putstr(char *str);
+int 		preproccess(char **av);
 int			proccess(char *str);
 
 #endif
