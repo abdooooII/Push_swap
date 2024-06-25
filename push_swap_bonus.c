@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:26:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 16:45:42 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:40:38 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,25 +274,6 @@ void	free_stack(t_stack **stack)
 		*stack = tmp;
 	}
 	*stack = NULL;
-}
-
-void	sort_other(t_stack **stack_a, t_stack **stack_b)
-{
-	index_stack(*stack_a);
-	from_a_to_b(stack_a, stack_b);
-	from_b_to_a(stack_a, stack_b);
-}
-
-void	sorting_helper(t_stack **stack_a, t_stack **stack_b)
-{
-	if (ft_lstsize(*stack_a) == 3 || ft_lstsize(*stack_a) == 2)
-		sort_three(stack_a);
-	else if (ft_lstsize(*stack_a) == 4)
-		sort_four(stack_a, stack_b);
-	else if (ft_lstsize(*stack_a) == 5)
-		sort_five(stack_a, stack_b);
-	else
-		sort_other(stack_a, stack_b);
 }
 
 void	checker(t_stack **stack_a, t_stack **stack_b, char *instruction)
