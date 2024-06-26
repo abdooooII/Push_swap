@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 21:14:47 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 21:15:04 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/26 17:09:42 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	is_alpha(char **av)
 	int	j;
 
 	i = 1;
+	if (preproccess(av))
+		return (1);
 	while (av[i])
 	{
 		j = 0;

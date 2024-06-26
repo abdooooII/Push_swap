@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 21:11:37 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/26 17:11:21 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void		sort_five(t_stack **stack_a, t_stack **stack_b);
 int			ft_strcmp(const char *s1, const char *s2);
 void		ft_error(char *str);
 void		ft_putstr(char *str);
+int			proccess(char *str);
+int			preproccess(char **av);
 
 // gnl
 char		*ft_strjoin(char *s1, char *s2);

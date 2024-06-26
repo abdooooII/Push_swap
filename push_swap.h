@@ -6,7 +6,7 @@
 /*   By: abouafso <abouafso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 04:27:55 by abouafso          #+#    #+#             */
-/*   Updated: 2024/06/25 21:06:31 by abouafso         ###   ########.fr       */
+/*   Updated: 2024/06/26 17:02:11 by abouafso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		stack_position(t_stack *a);
 void		from_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void		ft_error(char *str);
 void		ft_putstr(char *str);
-int 		preproccess(char **av);
+int			preproccess(char **av);
 int			proccess(char *str);
 
 #endif
